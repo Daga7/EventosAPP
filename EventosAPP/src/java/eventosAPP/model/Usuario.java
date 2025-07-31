@@ -4,7 +4,7 @@ package eventosAPP.model;
 public class Usuario {
     private String nombres;
     private String apellidos;
-    private String correo,
+    private String correo;
     private String contraseña;
     private String telefono;
     private String rol;
