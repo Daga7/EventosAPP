@@ -3,22 +3,23 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.List;
 
+//CORREGIR ERRORES DE ESCRITURA 
 //Clase  Usuarios
 public class Usuario {
     private int usuarioID;
-    private String nombres;
-    private String apellidos;
+    private String nombre;
+    private String apellido;
     private String email;
     private String contrasena;
     private String telefono;
-    private LocalDate fechaNacimiento  
+    private LocalDate fechaNacimiento;
     private String rol;
-    private ArrayList<Eventos> eventos;
-    private ArrayList<Notificaciones> notificaciones;
-    private ArrayList<Mensajes> mensajes;
+    private ArrayList<Evento> evento;
+    private ArrayList<Notificacion> notificacion;
+    private ArrayList<Mensaje> mensaje;
 
     // Constructor de la clase Usuario
-    public Usuario( int usuarioID , String nombres, String apellidos, String email , String contrasena,String telefono,Sring fechaNacimiento, String rol) {
+    public Usuario( int usuarioID , String nombre, String apellido, String email , String contrasena, String telefono, LocalDate fechaNacimiento, String rol) {
         this.usuarioID = usuarioID;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -26,23 +27,23 @@ public class Usuario {
         this.contrasena = contrasena;
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
-        this.Rol = Rol;
-        this.eventos = new ArrayList<>();
-        this.notificaciones = new ArrayList<>();
-        this.mensajes = new ArrayList<>();
+        this.rol = rol;
+        this.evento = new ArrayList<>();
+        this.notificacion = new ArrayList<>();
+        this.mensaje = new ArrayList<>();
     }
 
     // getters y setters
 
-        //gett Y sett usuarioID
-        public String getUsuarioID() {
+    
+        public int getUsuarioID() {
             return usuarioID;
         }
-        public void setUsuraioID(int usuarioId){
+        public void setUsuarioID(int usuarioID){
             this.usuarioID =usuarioID;
         }
         
-        //gett y sett Nombre
+   
         public String getNombre() { 
             return nombre; 
         }
@@ -50,7 +51,7 @@ public class Usuario {
             this.nombre = nombre; 
         }
         
-        //gett y sett Apellido
+    
         public String getApellido() { 
             return apellido; 
         }
@@ -58,23 +59,23 @@ public class Usuario {
             this.apellido = apellido; 
         }
 
-        //gett y sett Email
+     
         public String getEmail() { 
-            return correo; 
+            return email; 
         }
         public void setEmail(String email) { 
             this.email = email; 
         }
 
-        //gett y sett contrasena
+        
         public String getContrasena() { 
             return contrasena; 
         }
         public void setContrasena(String contrasena) { 
-            this.contraseña = contraseña; 
+            this.contrasena = contrasena; 
         }
 
-        //gett y sett Telefono
+      
         public String getTelefono() { 
             return telefono; 
         }
@@ -82,15 +83,15 @@ public class Usuario {
             this.telefono = telefono; 
         }
 
-        //gett y sett FechaNacimiento
-        public String getFechaNacimiento() { 
+    
+        public LocalDate getFechaNacimiento() { 
             return fechaNacimiento; 
         }
-        public void setFechaNacimiento(String fechaNacimiento) { 
+        public void setFechaNacimiento(LocalDate fechaNacimiento) { 
             this.fechaNacimiento = fechaNacimiento; 
         }
 
-        //gett y sett Rol
+       
         public String getRol() { 
             return rol; 
         }
@@ -98,19 +99,19 @@ public class Usuario {
             this.rol = rol; 
         }
 
-        //gett Lista eventos
-        public ArrayList<Eventos> geteventos(){
-            return eventos;
+      
+        public ArrayList<Evento> getEvento(){
+            return evento;
         }
 
-        //get Lista notificaciones 
-        public ArrayList<Notificacions> getnotificaciones(){
-            return notificaciones;
+        
+        public ArrayList<Notificacion> getNotificacion(){
+            return notificacion;
         }
 
-        //gett Lista mensajes 
-        public ArrayList<Mensajes> getmensajes(){
-            return mensajes;
+       
+        public ArrayList<Mensaje> getMensaje(){
+            return mensaje;
         }
 
 
@@ -118,15 +119,16 @@ public class Usuario {
 
         //Metodo vetificacion de Rol y permisos 
             // Arreglar el tema de que pueda cambair el evento 
-        public boolean esOrganizador(){
-            return this.rol.equalsIgnoreCase("organizador");
+        public boolean esOrganizador() {
+            return this.rol != null && this.rol.equalsIgnoreCase("organizador");
         }
-
-        if (usuario.esOrganizador()){
-            System.out.println("TIene permisos para modificar el evento");
-        }else{
-            System.out.println("No tiene permisos para modificar el evento , solo recibira notificaciones");
+        
+            // Método para mostrar los permisos
+        public void mostrarPermisos() {
+            if (esOrganizador()) {
+                System.out.println("Tiene permisos para modificar el evento.");
+            } else {
+                System.out.println("No tiene permisos para modificar el evento, solo recibirá notificaciones.");
+            }
         }
-
-    
 }
