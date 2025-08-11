@@ -19,8 +19,7 @@ Una aplicación de escritorio desarrollada en Java con Swing que permite a los u
 
 ---
 
-## 🖼️ Capturas de pantalla (opcional)
-> *(Agrega aquí imágenes del login, eventos, notificaciones, etc. cuando las tengas)*
+## 🖼️ Capturas de pantalla 
 
 ---
 
